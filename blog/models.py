@@ -13,21 +13,18 @@ class Post(models.Model):
 	upd_date = models.DateTimeField(auto_now=True)
 	objects = PostQuerySet.as_manager()
 
-	def __str__(self):
-		return self.title
-
 	def __unicode__(self):
-		return self.post
+		return self.author
 
 	class Meta:
 		ordering = ['-pub_date']
 
-class Author(models.Model):
+class Comment(models.Model):
 	author = models.CharField(max_length=100)
 	text = models.CharField(max_length=400)
 	pub_date = models.DateTimeField(auto_now_add=True)
 	post = models.ForeignKey('Post')
-	
+
 	def __unicode__(self):
-		return self.post
+		return self.author
 
