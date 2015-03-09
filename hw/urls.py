@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
 from blog.api import PostResource,CommentResource
 
 post_resource = PostResource()
